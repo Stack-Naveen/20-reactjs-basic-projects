@@ -1,0 +1,56 @@
+.card {
+  color: aqua;
+  background-color: black;
+  width: 500px;
+  max-width: 500px;
+  height: 100%;
+  max-height: 500px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+button {
+  width: 100%;
+  max-width: 300px;
+  padding: 10px;
+  margin: 1rem;
+  color: aqua;
+  background-color: black;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+button:hover {
+  color: rgb(74, 209, 209);
+  transition: 0.5s ease;
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+@media screen and (max-width: 720px) {
+  .card {
+    width: 500px;
+    max-width: 250px;
+    height: 100%;
+    max-height: 250px;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 10px;
+  }
+
+  button {
+    width: 100%;
+    max-width: 250px;
+    padding: 10px;
+    margin: 1rem;
+    border-radius: 5px;
+    font-size: 15px;
+  }
+}

@@ -1,5 +1,6 @@
 import data from "./data";
 import React, { useState } from "react";
+import "./styles.css";
 
 export default function Accordian() {
   const [selected, setSelected] = useState(null);
@@ -23,7 +24,7 @@ export default function Accordian() {
 
   return (
     <div>
-      <div>
+      <div className="container">
         <button onClick={() => setActivate(!activate)}>
           {activate ? "Disable Multi Selection" : "Enable Multi Selection"}
         </button>
