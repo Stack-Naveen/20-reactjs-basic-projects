@@ -16,7 +16,7 @@
   gap: 10px;
 }
 
-button {
+.AccButton {
   width: 100%;
   max-width: 300px;
   padding: 10px;
@@ -27,7 +27,7 @@ button {
   font-size: 1rem;
 }
 
-button:hover {
+.AccButton:hover {
   color: rgb(74, 209, 209);
   transition: 0.5s ease;
   transform: scale(1.05);
@@ -45,7 +45,7 @@ button:hover {
     font-size: 10px;
   }
 
-  button {
+  .AccButton {
     width: 100%;
     max-width: 250px;
     font-weight: bold;
