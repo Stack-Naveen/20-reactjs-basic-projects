@@ -25,7 +25,7 @@ export default function Accordian() {
   return (
     <div>
       <div className="container">
-        <button onClick={() => setActivate(!activate)}>
+        <button className="AccButton" onClick={() => setActivate(!activate)}>
           {activate ? "Disable Multi Selection" : "Enable Multi Selection"}
         </button>
         {data && data.length > 0 ? (
