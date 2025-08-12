@@ -48,6 +48,8 @@ export default function RandomColor() {
       <button onClick={typeOfColor === "HEX" ? handleHex : handleRgb}>
         GENERATE COLOR
       </button>
+      <h2 style={{ marginTop: "100px" }}>{color}</h2>
+      <h2 style={{ margin: "10px" }}>{typeOfColor}</h2>
     </div>
   );
 }
