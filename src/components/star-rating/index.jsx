@@ -13,7 +13,7 @@ export default function StarRating({ stars = 5 }) {
   const handleLeave = () => setHover(0);
   return (
     <div className="rateContainer">
-      <h2>Star-Rating</h2>
+      <h2 className="heading">Star-Rating</h2>
       <div className="stars" onMouseLeave={handleLeave}>
         {Array.from({ length: stars }).map((_, index) => {
           const starIndex = index + 1;
