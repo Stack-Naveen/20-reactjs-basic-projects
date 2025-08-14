@@ -53,3 +53,7 @@
   margin: 0 0.2rem;
   cursor: pointer;
 }
+
+.hide-slide{
+  display: none;
+}
