@@ -59,7 +59,14 @@ export default function ImageSlider({ url, limit = 5, page = 1 }) {
           {image && image.length
             ? image.map((_, index) => {
                 return (
-                  <button className="current-indicator" key={index}></button>
+                  <button
+                    className={
+                      slide === index
+                        ? "current-indicator"
+                        : "current-indicator inActive"
+                    }
+                    key={index}
+                  ></button>
                 );
               })
             : null}
