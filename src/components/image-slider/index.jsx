@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
+import { BsArrowLeftCircleFill, BsArrowRightCircleFill } from "react-icons/bs";
 import "./styles.css";
 export default function ImageSlider({ url, limit = 5, page = 1 }) {
   const [image, setImage] = useState([]);
 
-  /* URL = "https://picsum.photos/v2/list?page=1&limit=10" */
   async function fetchUrl(comingUrl) {
     try {
       const response = await fetch(comingUrl);
@@ -19,17 +19,34 @@ export default function ImageSlider({ url, limit = 5, page = 1 }) {
   }, [url]);
 
   return (
-    <div>
+    <div className="container">
       <h2>Image-Slider</h2>
       <div className="slideContainer">
-        {image.map((eachItem) => {
-          const { id, download_url } = eachItem;
-          return (
-            <div key={id}>
-              <img className="image" src={download_url} alt="image-slides" />
-            </div>
-          );
-        })}
+        <BsArrowLeftCircleFill className="arrow left-arrow" />
+        {image && image.length
+          ? image.map((eachItem) => {
+              const { id, download_url } = eachItem;
+              return (
+                <div key={id}>
+                  <img
+                    className="current-slide"
+                    src={download_url}
+                    alt="image-slides"
+                  />
+                </div>
+              );
+            })
+          : null}
+        <BsArrowRightCircleFill className="arrow right-arrow" />
+        <span className="indicators">
+          {image && image.length
+            ? image.map((_, index) => {
+                return (
+                  <button className="current-indicator" key={index}></button>
+                );
+              })
+            : null}
+        </span>
       </div>
     </div>
   );
