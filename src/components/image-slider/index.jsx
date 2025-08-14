@@ -4,14 +4,29 @@ import "./styles.css";
 export default function ImageSlider({ url, limit = 5, page = 1 }) {
   const [image, setImage] = useState([]);
   const [slide, setSlide] = useState(0);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   async function fetchUrl(comingUrl) {
-    const response = await fetch(comingUrl);
-    const data = await response.json();
-    setImage(data);
-    console.log(data);
+    setLoading(true);
+    try {
+      const response = await fetch(comingUrl);
+      const data = await response.json();
+      setImage(data);
+      setLoading(false);
+      setError(false);
+      if (data) {
+        setImage(data);
+        setLoading(false);
+      }
+    } catch (e) {
+      setLoading(false);
+      setError(e.message);
+    }
   }
 
+  if (loading) <div>Loading...</div>;
+  if (error !== null) <div>Error occured {error}</div>;
   useEffect(() => {
     if (url !== "") fetchUrl(`${url}?page=${page}&limit=${limit}`);
   }, [url, limit, page]);
