@@ -1,0 +1,9 @@
+.image {
+  width: 100%;
+  max-width: 250px;
+}
+
+.slideContainer {
+  width: 100vw;
+  height: 100vh;
+}
