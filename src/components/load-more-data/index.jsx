@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import "./styles.css";
 const LoadMoreData = () => {
   const [products, setProducts] = useState([]);
   const [skip, setSkip] = useState(0);
@@ -41,14 +42,15 @@ const LoadMoreData = () => {
   if (error) return <div>Error: {error}</div>;
 
   return (
-    <div>
-      <div className="entire-container">
+    <div className="entire-container">
+      <h2>Load - Products</h2>
+      <div className="products-container">
         {products && products.length
           ? products.map((eachItem, index) => {
               const { id, title, price, thumbnail } = eachItem;
               return (
                 <div key={`${id}-${index}`}>
-                  <div className="products-container">
+                  <div className="product">
                     <div>{title}</div>
                     <img src={thumbnail} alt={title} />
                     <div>{price}</div>
@@ -58,17 +60,15 @@ const LoadMoreData = () => {
             })
           : null}
       </div>
-      <div></div>
+      <div>{loading && <p>Loading data...</p>}</div>
 
-      {loading && <p>Loading data...</p>}
-
-      <div>
+      <div className="btn-container">
         <button
           onClick={handleLoad}
           disabled={disableBtn || loading}
           className="loadBtn"
         >
-          Load More
+          {disableBtn ? "No more" : "Load More"}
         </button>
         {disableBtn ? <p>You have reached 100 products</p> : null}
       </div>
