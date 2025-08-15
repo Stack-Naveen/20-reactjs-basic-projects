@@ -5,6 +5,7 @@ const LoadMoreData = () => {
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [disableBtn, setDisableBtn] = useState(false);
 
   const url = `https://dummyjson.com/products?limit=20&skip=${skip}`;
 
@@ -26,6 +27,10 @@ const LoadMoreData = () => {
   useEffect(() => {
     fetchUrl(url);
   }, [url]);
+
+  useEffect(() => {
+    if (products && products.length >= 100) setDisableBtn(true);
+  }, [products]);
 
   const handleLoad = () => {
     if (products.length < 100) {
@@ -58,9 +63,14 @@ const LoadMoreData = () => {
       {loading && <p>Loading data...</p>}
 
       <div>
-        <button onClick={handleLoad} className="loadBtn">
+        <button
+          onClick={handleLoad}
+          disabled={disableBtn || loading}
+          className="loadBtn"
+        >
           Load More
         </button>
+        {disableBtn ? <p>You have reached 100 products</p> : null}
       </div>
     </div>
   );
