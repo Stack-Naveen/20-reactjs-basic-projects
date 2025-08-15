@@ -3,17 +3,25 @@ const LoadMoreData = () => {
   const [products, setProducts] = useState([]);
   const [skip, setSkip] = useState(0);
 
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+
   const url = `https://dummyjson.com/products?limit=20&skip=${skip}`;
 
   async function fetchUrl(comingUrl) {
+    setLoading(true);
     try {
       const response = await fetch(comingUrl);
       const { products } = await response.json();
 
+      setLoading(false);
       if (products && products.length) {
         setProducts((prevData) => [...prevData, ...products]);
       }
-    } catch (e) {}
+    } catch (e) {
+      setLoading(false);
+      setError(e.message);
+    }
   }
   useEffect(() => {
     fetchUrl(url);
@@ -24,6 +32,8 @@ const LoadMoreData = () => {
       setSkip(skip + 20);
     }
   };
+
+  if (error) return <div>Error: {error}</div>;
 
   return (
     <div>
@@ -44,6 +54,8 @@ const LoadMoreData = () => {
           : null}
       </div>
       <div></div>
+
+      {loading && <p>Loading data...</p>}
 
       <div>
         <button onClick={handleLoad} className="loadBtn">
