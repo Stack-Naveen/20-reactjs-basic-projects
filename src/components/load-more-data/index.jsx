@@ -1,36 +1,55 @@
 import { useEffect, useState } from "react";
 const LoadMoreData = () => {
   const [products, setProducts] = useState([]);
+  const [skip, setSkip] = useState(0);
 
-  const url = `https://dummyjson.com/products?limit=10&select=title,price,thumbnail`;
+  const url = `https://dummyjson.com/products?limit=20&skip=${skip}`;
 
   async function fetchUrl(comingUrl) {
-    const response = await fetch(comingUrl);
-    const { products } = await response.json();
-    setProducts(products);
-    console.log(products);
+    try {
+      const response = await fetch(comingUrl);
+      const { products } = await response.json();
+
+      if (products && products.length) {
+        setProducts((prevData) => [...prevData, ...products]);
+      }
+    } catch (e) {}
   }
   useEffect(() => {
     fetchUrl(url);
   }, [url]);
 
+  const handleLoad = () => {
+    if (products.length < 100) {
+      setSkip(skip + 20);
+    }
+  };
+
   return (
     <div>
       <div className="entire-container">
-        {products.map((eachItem) => {
-          const { id, title, price, thumbnail } = eachItem;
-          return (
-            <div>
-              <div className="products-container" key={id}>
-                <div>{title}</div>
-                <img src={thumbnail} alt="product-thumbnail" />
-                <div>{price}</div>
-              </div>
-            </div>
-          );
-        })}
+        {products && products.length
+          ? products.map((eachItem, index) => {
+              const { id, title, price, thumbnail } = eachItem;
+              return (
+                <div key={`${id}-${index}`}>
+                  <div className="products-container">
+                    <div>{title}</div>
+                    <img src={thumbnail} alt={title} />
+                    <div>{price}</div>
+                  </div>
+                </div>
+              );
+            })
+          : null}
       </div>
-      <button className="loadBtn">Load More</button>
+      <div></div>
+
+      <div>
+        <button onClick={handleLoad} className="loadBtn">
+          Load More
+        </button>
+      </div>
     </div>
   );
 };
