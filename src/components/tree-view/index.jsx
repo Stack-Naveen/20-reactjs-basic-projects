@@ -1,5 +1,6 @@
 import { useState } from "react";
-
+import "./styles.css";
+import { FaPlus, FaMinus } from "react-icons/fa";
 const TreeView = ({ menus = [] }) => {
   return (
     <div className="main-container">
@@ -36,7 +37,11 @@ const MenuItems = ({ items }) => {
         <p> {items.label}</p>
         {items && items.children && items.children.length > 0 ? (
           <span onClick={() => handleToggle(items.label)}>
-            {displayChildren[items.label] ? "-" : "+"}
+            {displayChildren[items.label] ? (
+              <FaMinus size={20} />
+            ) : (
+              <FaPlus size={20} />
+            )}
           </span>
         ) : null}
       </div>
