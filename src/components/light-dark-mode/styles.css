@@ -1,0 +1,48 @@
+* {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+:root {
+  --back: white;
+  --text: black;
+  --btn-bg: black;
+  --btn-text: white;
+}
+
+[data-switch="dark"] {
+  --back: black;
+  --text: white;
+  --btn-bg: white;
+  --btn-text: black;
+}
+.theme-container {
+  background-color: var(--back);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 20px;
+  transition: all 1s;
+}
+
+.change-theme {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.theme-container .change-theme p {
+  color: var(--text);
+  font-size: 40px;
+  margin: 0px;
+}
+
+.theme-container .change-theme button {
+  background-color: var(--btn-bg);
+  border: 5px solid var(--btn-bg);
+  color: var(--btn-text);
+  padding: 10px;
+  border-radius: 15px;
+  cursor: pointer;
+}

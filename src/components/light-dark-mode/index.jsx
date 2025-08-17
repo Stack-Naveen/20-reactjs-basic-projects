@@ -1,4 +1,5 @@
 import useStorage from "./useStorage";
+import "./styles.css";
 
 const SwitchColor = () => {
   const [theme, setTheme] = useStorage("theme", "dark");
@@ -7,7 +8,7 @@ const SwitchColor = () => {
     setTheme(theme === "light" ? "dark" : "light");
   };
   return (
-    <div className="theme-container">
+    <div className="theme-container" data-switch={theme}>
       <div className="change-theme">
         <p>Hey hii</p>
         <button onClick={handleTheme}>Switch Theme</button>

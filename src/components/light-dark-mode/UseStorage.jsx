@@ -9,7 +9,7 @@ export default function useStorage(key, defaultValue) {
       );
     } catch (error) {
       console.log(error);
-      currentValue === defaultValue;
+      currentValue = defaultValue;
     }
     return currentValue;
   });
