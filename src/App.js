@@ -1,4 +1,5 @@
 import "./App.css";
+import SwitchColor from "./components/light-dark-mode";
 /* import TreeView from "./components/tree-view";
 import menus from "./components/tree-view/data"; */
 /* import ImageSlider from "./components/image-slider"; */
@@ -6,7 +7,7 @@ import menus from "./components/tree-view/data"; */
 /* import Accordian from "./components/accordian";
 import RandomColor from "./components/random-color"; */
 /* import StarRating from "./components/star-rating"; */
-import QrCode from "./components/qr-code-generator";
+/* import QrCode from "./components/qr-code-generator"; */
 function App() {
   return (
     <div className="App">
@@ -16,7 +17,8 @@ function App() {
       {/* <ImageSlider url={"https://picsum.photos/v2/list"} page={1} limit={10} /> */}
       {/* <LoadMoreData/> */}
       {/* <TreeView menus={menus}/> */}
-      <QrCode/>
+      {/* <QrCode/> */}
+      <SwitchColor/>
     </div>
   );
 }
