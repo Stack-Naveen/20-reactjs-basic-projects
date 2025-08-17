@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export default function UseStorage(key, defaultValue) {
+export default function useStorage(key, defaultValue) {
   const [value, setValue] = useState(() => {
     let currentValue;
     try {
