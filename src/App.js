@@ -1,5 +1,6 @@
 import "./App.css";
-import SwitchColor from "./components/light-dark-mode";
+import ScrollIndicator from "./components/scroll-indicator";
+/* import SwitchColor from "./components/light-dark-mode"; */
 /* import TreeView from "./components/tree-view";
 import menus from "./components/tree-view/data"; */
 /* import ImageSlider from "./components/image-slider"; */
@@ -18,7 +19,8 @@ function App() {
       {/* <LoadMoreData/> */}
       {/* <TreeView menus={menus}/> */}
       {/* <QrCode/> */}
-      <SwitchColor/>
+      {/* <SwitchColor/> */}
+      <ScrollIndicator url={"https://dummyjson.com/products?limit=100"} />
     </div>
   );
 }
