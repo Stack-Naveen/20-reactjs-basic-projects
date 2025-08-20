@@ -46,17 +46,28 @@ const ScrollIndicator = ({ url }) => {
 
   return (
     <div>
-      <h2>Scroll-Indicator</h2>
-      {data && data.length
-        ? data.map(({ id, title, category }) => {
-            return (
-              <div key={id}>
-                <h3>{title}</h3>
-                <p>Category - {category}</p>
-              </div>
-            );
-          })
-        : null}
+      <div className="top-container">
+        <h2>Scroll-Indicator</h2>
+        <div className="tracking-container">
+          <div
+            className="current-position"
+            style={{ width: `${scroll}%` }}
+          ></div>
+        </div>
+      </div>
+
+      <div className="data-container">
+        {data && data.length
+          ? data.map(({ id, title, category }) => {
+              return (
+                <div key={id}>
+                  <h3>{title}</h3>
+                  <p>Category - {category}</p>
+                </div>
+              );
+            })
+          : null}
+      </div>
     </div>
   );
 };
