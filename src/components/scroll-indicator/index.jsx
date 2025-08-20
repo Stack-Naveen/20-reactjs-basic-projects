@@ -4,6 +4,7 @@ const ScrollIndicator = ({ url }) => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [scroll, setScroll] = useState(0);
 
   async function fetchUrl(comingUrl) {
     setLoading(true);
@@ -22,6 +23,24 @@ const ScrollIndicator = ({ url }) => {
     fetchUrl(url);
   }, [url]);
 
+  function handleScroll() {
+    const scrolled =
+      document.body.scrollTop || document.documentElement.scrollTop;
+
+    const height =
+      document.documentElement.scrollHeight -
+      document.documentElement.clientHeight;
+
+    setScroll((scrolled / height) * 100);
+  }
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+  console.log(scroll);
   if (loading) return <h3>Loading . . .</h3>;
   if (error) return <h3>{error}</h3>;
 
