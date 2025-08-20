@@ -1,0 +1,25 @@
+.top-container {
+  position: fixed;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+  text-align: center;
+  background-color: #0f4846;
+  color: #d7f0cf;
+}
+
+.tracking-container {
+  width: 100%;
+  height: 10px;
+  background: #12304b;
+}
+
+.current-position {
+  height: 10px;
+  background: #eca0ef;
+  width: 0%;
+}
+
+.data-container {
+  margin-top: 100px;
+}

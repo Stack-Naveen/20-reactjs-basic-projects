@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import "./styles.css";
 
 const ScrollIndicator = ({ url }) => {
   const [data, setData] = useState([]);
@@ -57,16 +58,15 @@ const ScrollIndicator = ({ url }) => {
       </div>
 
       <div className="data-container">
-        {data && data.length
-          ? data.map(({ id, title, category }) => {
-              return (
-                <div key={id}>
-                  <h3>{title}</h3>
-                  <p>Category - {category}</p>
-                </div>
-              );
-            })
-          : null}
+        {data.length > 0 &&
+          data.map(({ id, title, category }) => {
+            return (
+              <div key={id}>
+                <h3>{title}</h3>
+                <p>Category - {category}</p>
+              </div>
+            );
+          })}
       </div>
     </div>
   );
