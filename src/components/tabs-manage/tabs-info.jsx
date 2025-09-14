@@ -16,5 +16,9 @@ export default function TabsInfo() {
     },
   ];
 
-  return <Tabs tabsContent={tabs} />;
+  function handleChange(currentTabIndex) {
+    console.log(currentTabIndex);
+  }
+
+  return <Tabs tabsContent={tabs} onChange={handleChange} />;
 }
