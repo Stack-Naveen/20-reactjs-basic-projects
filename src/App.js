@@ -1,6 +1,7 @@
 import "./App.css";
+import TabsInfo from "./components/tabs-manage/tabs-info";
 /* import ScrollIndicator from "./components/scroll-indicator"; */
-import Tabs from "./components/tabs-manage/tabs";
+
 /* import SwitchColor from "./components/light-dark-mode"; */
 /* import TreeView from "./components/tree-view";
 import menus from "./components/tree-view/data"; */
@@ -22,7 +23,7 @@ function App() {
       {/* <QrCode/> */}
       {/* <SwitchColor/> */}
       {/* <ScrollIndicator url={"https://dummyjson.com/products?limit=100"} /> */}
-      <Tabs/>
+      <TabsInfo/>
     </div>
   );
 }
