@@ -4,15 +4,15 @@ export default function TabsInfo() {
   const tabs = [
     {
       label: "Tab 1",
-      content: <div>This is content for Tab 1</div>,
+      content: <div>Hii iam Tab 1</div>,
     },
     {
       label: "Tab 2",
-      content: <div>This is content for Tab 2</div>,
+      content: <div>Hello iam Tab 2</div>,
     },
     {
       label: "Tab 3",
-      content: <div>This is content for Tab 3</div>,
+      content: <div>Bye iam Tab 3</div>,
     },
   ];
 

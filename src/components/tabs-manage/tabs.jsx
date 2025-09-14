@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import "./styles.css";
 export default function Tabs({ tabsContent, onChange }) {
   const [currentTabIndex, setCurrentTabIndex] = useState(0);
 
@@ -12,11 +12,7 @@ export default function Tabs({ tabsContent, onChange }) {
     <div className="container">
       <div className="title">
         {tabsContent.map(({ label }, index) => (
-          <div
-            className={`tab-item ${currentTabIndex === index ? "active" : ""}`}
-            onClick={() => handleOnClick(index)}
-            key={label}
-          >
+          <div onClick={() => handleOnClick(index)} key={label}>
             <span className="label">{label}</span>
           </div>
         ))}
